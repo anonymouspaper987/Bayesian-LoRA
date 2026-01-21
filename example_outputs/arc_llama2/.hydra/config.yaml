@@ -1,0 +1,109 @@
+paths:
+  root_dir: .
+  data_dir: ${paths.root_dir}/data/
+  log_dir: ${paths.root_dir}/logs/
+  output_dir: ${hydra:runtime.output_dir}
+  work_dir: ${hydra:runtime.cwd}
+notes: 'Demonstration usage for Laplace-LoRA method with a decoder-only language
+
+  model.'
+task_name: ${dset.name}_${llm.name}
+log_level: INFO
+seed: null
+print_config: false
+opt:
+  module: torch.optim
+  classname: AdamW
+  lr: 0.0007393798
+  betas:
+  - 0.9
+  - 0.999
+  eps: 1.0e-05
+  weight_decay: 0.02707
+dset:
+  name: arc
+  alias_name: ARC-Easy
+  max_epochs: 5
+  train_bs: 6
+  train_split: train
+  eval_bs: 4
+  eval_split: validation
+  eval_subset: 1500
+  max_length: 256
+  n_labels: 5
+  train_subset: -1
+llm:
+  quantization:
+    _target_: transformers.utils.quantization_config.BitsAndBytesConfig
+    load_in_4bit: true
+    load_in_8bit: false
+    llm_int8_threshold: 6.0
+    llm_int8_has_fp16_weight: false
+    bnb_4bit_quant_type: nf4
+    bnb_4bit_compute_dtype: bfloat16
+    bnb_4bit_use_double_quant: true
+  peft:
+    _target_: peft.LoraConfig
+    r: 8
+    lora_alpha: 8
+    lora_dropout: 0.05
+    task_type: CAUSAL_LM
+    inference_mode: false
+    bias: none
+    target_modules:
+    - q_proj
+    - v_proj
+    - lm_head
+  name: llama2
+  model_name_or_path: meta-llama/Llama-2-7b-hf
+  config_class: AutoConfig
+  config_kwargs:
+    trust_remote_code: true
+  tokenizer_class: AutoTokenizer
+  tokenizer_kwargs:
+    use_fast: true
+    padding_side: left
+  tokenizer_special_tokens:
+    pad_token: tokenizer.bos_token
+  model_class: AutoModelForCausalLM
+  model_kwargs:
+    torch_dtype: float32
+    low_cpu_mem_usage: true
+    attn_implementation: flash_attention_2
+  global_gen_kwargs: {}
+  add_space: false
+  is_sc: false
+  use_peft: true
+  use_quant: true
+inducing:
+  inducing_rows: 9
+  inducing_cols: 9
+  whitened_u: true
+  q_inducing: diagonal
+  learn_lamda: true
+  init_lamda: 0.001
+  max_lamda: 0.03
+  max_sd_u: 0.1
+  cache_cholesky: true
+  prior_sd: 0.1
+  sqrt_width_scaling: true
+  key_layers:
+  - q_proj
+  - k_proj
+  - lm_head
+inducing_type: pure
+baye_lora: true
+run_every_step: true
+dropout: 0
+use_tqdm: true
+map_lr: 5.0e-05
+train_steps: 1000
+n_kfac: 10
+lr_threshold: 100
+prior_var: 0.1
+tokenizer_run_kwargs:
+  padding: true
+  truncation: true
+  return_tensors: pt
+  max_length: 512
+out_dir: null

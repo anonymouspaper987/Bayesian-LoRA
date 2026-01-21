@@ -1,0 +1,576 @@
+[2025-09-24 14:59:02,847][baye_lora][INFO] - Using device: cuda:5
+[2025-09-24 14:59:04,328][root][INFO] - Setting up PEFT
+[2025-09-24 14:59:05,707][baye_lora][INFO] - [Inject] replaced Linear layers: PeftModelForCausalLM(
+  (base_model): LoraModel(
+    (model): LlamaForCausalLM(
+      (model): LlamaModel(
+        (embed_tokens): Embedding(32000, 4096)
+        (layers): ModuleList(
+          (0-31): 32 x LlamaDecoderLayer(
+            (self_attn): LlamaAttention(
+              (q_proj): lora.Linear(
+                (base_layer): Linear(in_features=4096, out_features=4096, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.05, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): InducingLinear(
+                    in_features=4096, out_features=8, bias=False
+                    (row_flow): MaskedAffineAutoregressiveTransform(
+                      (autoregressive_net): MADE(
+                        (initial_layer): MaskedLinear(in_features=9, out_features=16, bias=True)
+                        (blocks): ModuleList(
+                          (0-1): 2 x MaskedResidualBlock(
+                            (linear_layers): ModuleList(
+                              (0-1): 2 x MaskedLinear(in_features=16, out_features=16, bias=True)
+                            )
+                            (dropout): Dropout(p=0.1, inplace=False)
+                          )
+                        )
+                        (final_layer): MaskedLinear(in_features=16, out_features=18, bias=True)
+                      )
+                    )
+                  )
+                )
+                (lora_B): ModuleDict(
+                  (default): InducingLinear(
+                    in_features=8, out_features=4096, bias=False
+                    (row_flow): MaskedAffineAutoregressiveTransform(
+                      (autoregressive_net): MADE(
+                        (initial_layer): MaskedLinear(in_features=9, out_features=16, bias=True)
+                        (blocks): ModuleList(
+                          (0-1): 2 x MaskedResidualBlock(
+                            (linear_layers): ModuleList(
+                              (0-1): 2 x MaskedLinear(in_features=16, out_features=16, bias=True)
+                            )
+                            (dropout): Dropout(p=0.1, inplace=False)
+                          )
+                        )
+                        (final_layer): MaskedLinear(in_features=16, out_features=18, bias=True)
+                      )
+                    )
+                  )
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): lora.Linear(
+                (base_layer): Linear(in_features=4096, out_features=4096, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.05, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=4096, out_features=8, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=8, out_features=4096, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+            )
+            (mlp): LlamaMLP(
+              (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+              (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+              (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+              (act_fn): SiLU()
+            )
+            (input_layernorm): LlamaRMSNorm((4096,), eps=1e-05)
+            (post_attention_layernorm): LlamaRMSNorm((4096,), eps=1e-05)
+          )
+        )
+        (norm): LlamaRMSNorm((4096,), eps=1e-05)
+        (rotary_emb): LlamaRotaryEmbedding()
+      )
+      (lm_head): lora.Linear(
+        (base_layer): Linear(in_features=4096, out_features=32000, bias=False)
+        (lora_dropout): ModuleDict(
+          (default): Dropout(p=0.05, inplace=False)
+        )
+        (lora_A): ModuleDict(
+          (default): InducingLinear(
+            in_features=4096, out_features=8, bias=False
+            (row_flow): MaskedAffineAutoregressiveTransform(
+              (autoregressive_net): MADE(
+                (initial_layer): MaskedLinear(in_features=9, out_features=16, bias=True)
+                (blocks): ModuleList(
+                  (0-1): 2 x MaskedResidualBlock(
+                    (linear_layers): ModuleList(
+                      (0-1): 2 x MaskedLinear(in_features=16, out_features=16, bias=True)
+                    )
+                    (dropout): Dropout(p=0.1, inplace=False)
+                  )
+                )
+                (final_layer): MaskedLinear(in_features=16, out_features=18, bias=True)
+              )
+            )
+          )
+        )
+        (lora_B): ModuleDict(
+          (default): InducingLinear(
+            in_features=8, out_features=32000, bias=False
+            (row_flow): MaskedAffineAutoregressiveTransform(
+              (autoregressive_net): MADE(
+                (initial_layer): MaskedLinear(in_features=9, out_features=16, bias=True)
+                (blocks): ModuleList(
+                  (0-1): 2 x MaskedResidualBlock(
+                    (linear_layers): ModuleList(
+                      (0-1): 2 x MaskedLinear(in_features=16, out_features=16, bias=True)
+                    )
+                    (dropout): Dropout(p=0.1, inplace=False)
+                  )
+                )
+                (final_layer): MaskedLinear(in_features=16, out_features=18, bias=True)
+              )
+            )
+          )
+        )
+        (lora_embedding_A): ParameterDict()
+        (lora_embedding_B): ParameterDict()
+        (lora_magnitude_vector): ModuleDict()
+      )
+    )
+  )
+)
+[2025-09-24 14:59:05,707][baye_lora][INFO] - [Params] trainable=4.90M / total=6743.32M
+[2025-09-24 15:06:08,760][baye_lora][INFO] - [EP 0 | STEP 106] LR: 9.792000e-05 NLL=0.6940 | ACC=0.5222 | ECE=0.0246 (MC=4, train_mode=True)
+[2025-09-24 15:13:07,276][baye_lora][INFO] - [EP 1 | STEP 212] LR: 9.792000e-06 NLL=0.6366 | ACC=0.6416 | ECE=0.0614 (MC=4, train_mode=True)
+[2025-09-24 15:20:13,088][baye_lora][INFO] - [EP 2 | STEP 318] LR: 9.792000e-06 NLL=0.6587 | ACC=0.6551 | ECE=0.0982 (MC=4, train_mode=True)
+[2025-09-24 15:24:31,998][baye_lora][INFO] - Using device: cuda:5
+[2025-09-24 15:24:33,466][root][INFO] - Setting up PEFT
+[2025-09-24 15:24:34,889][baye_lora][INFO] - [Inject] replaced Linear layers: PeftModelForCausalLM(
+  (base_model): LoraModel(
+    (model): LlamaForCausalLM(
+      (model): LlamaModel(
+        (embed_tokens): Embedding(32000, 4096)
+        (layers): ModuleList(
+          (0-31): 32 x LlamaDecoderLayer(
+            (self_attn): LlamaAttention(
+              (q_proj): lora.Linear(
+                (base_layer): Linear(in_features=4096, out_features=4096, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.05, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): InducingLinear(
+                    in_features=4096, out_features=8, bias=False
+                    (row_flow): MaskedAffineAutoregressiveTransform(
+                      (autoregressive_net): MADE(
+                        (initial_layer): MaskedLinear(in_features=9, out_features=16, bias=True)
+                        (blocks): ModuleList(
+                          (0-1): 2 x MaskedResidualBlock(
+                            (linear_layers): ModuleList(
+                              (0-1): 2 x MaskedLinear(in_features=16, out_features=16, bias=True)
+                            )
+                            (dropout): Dropout(p=0.1, inplace=False)
+                          )
+                        )
+                        (final_layer): MaskedLinear(in_features=16, out_features=18, bias=True)
+                      )
+                    )
+                  )
+                )
+                (lora_B): ModuleDict(
+                  (default): InducingLinear(
+                    in_features=8, out_features=4096, bias=False
+                    (row_flow): MaskedAffineAutoregressiveTransform(
+                      (autoregressive_net): MADE(
+                        (initial_layer): MaskedLinear(in_features=9, out_features=16, bias=True)
+                        (blocks): ModuleList(
+                          (0-1): 2 x MaskedResidualBlock(
+                            (linear_layers): ModuleList(
+                              (0-1): 2 x MaskedLinear(in_features=16, out_features=16, bias=True)
+                            )
+                            (dropout): Dropout(p=0.1, inplace=False)
+                          )
+                        )
+                        (final_layer): MaskedLinear(in_features=16, out_features=18, bias=True)
+                      )
+                    )
+                  )
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): lora.Linear(
+                (base_layer): Linear(in_features=4096, out_features=4096, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.05, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=4096, out_features=8, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=8, out_features=4096, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+            )
+            (mlp): LlamaMLP(
+              (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+              (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+              (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+              (act_fn): SiLU()
+            )
+            (input_layernorm): LlamaRMSNorm((4096,), eps=1e-05)
+            (post_attention_layernorm): LlamaRMSNorm((4096,), eps=1e-05)
+          )
+        )
+        (norm): LlamaRMSNorm((4096,), eps=1e-05)
+        (rotary_emb): LlamaRotaryEmbedding()
+      )
+      (lm_head): lora.Linear(
+        (base_layer): Linear(in_features=4096, out_features=32000, bias=False)
+        (lora_dropout): ModuleDict(
+          (default): Dropout(p=0.05, inplace=False)
+        )
+        (lora_A): ModuleDict(
+          (default): InducingLinear(
+            in_features=4096, out_features=8, bias=False
+            (row_flow): MaskedAffineAutoregressiveTransform(
+              (autoregressive_net): MADE(
+                (initial_layer): MaskedLinear(in_features=9, out_features=16, bias=True)
+                (blocks): ModuleList(
+                  (0-1): 2 x MaskedResidualBlock(
+                    (linear_layers): ModuleList(
+                      (0-1): 2 x MaskedLinear(in_features=16, out_features=16, bias=True)
+                    )
+                    (dropout): Dropout(p=0.1, inplace=False)
+                  )
+                )
+                (final_layer): MaskedLinear(in_features=16, out_features=18, bias=True)
+              )
+            )
+          )
+        )
+        (lora_B): ModuleDict(
+          (default): InducingLinear(
+            in_features=8, out_features=32000, bias=False
+            (row_flow): MaskedAffineAutoregressiveTransform(
+              (autoregressive_net): MADE(
+                (initial_layer): MaskedLinear(in_features=9, out_features=16, bias=True)
+                (blocks): ModuleList(
+                  (0-1): 2 x MaskedResidualBlock(
+                    (linear_layers): ModuleList(
+                      (0-1): 2 x MaskedLinear(in_features=16, out_features=16, bias=True)
+                    )
+                    (dropout): Dropout(p=0.1, inplace=False)
+                  )
+                )
+                (final_layer): MaskedLinear(in_features=16, out_features=18, bias=True)
+              )
+            )
+          )
+        )
+        (lora_embedding_A): ParameterDict()
+        (lora_embedding_B): ParameterDict()
+        (lora_magnitude_vector): ModuleDict()
+      )
+    )
+  )
+)
+[2025-09-24 15:24:34,890][baye_lora][INFO] - [Params] trainable=4.90M / total=6743.32M
+[2025-09-24 15:31:37,690][baye_lora][INFO] - [EP 0 | STEP 426] LR: 4.280000e-04 NLL=0.5876 | ACC=0.6899 | ECE=0.0384 (MC=2, train_mode=True)
+[2025-09-24 15:38:35,350][baye_lora][INFO] - [EP 1 | STEP 852] LR: 4.280000e-05 NLL=0.5491 | ACC=0.7413 | ECE=0.0807 (MC=2, train_mode=True)
+[2025-09-24 15:46:09,217][baye_lora][INFO] - [EP 2 | STEP 1278] LR: 4.280000e-05 NLL=0.5519 | ACC=0.7706 | ECE=0.1054 (MC=2, train_mode=True)
+[2025-09-24 15:53:41,982][baye_lora][INFO] - [EP 3 | STEP 1704] LR: 4.280000e-06 NLL=0.5857 | ACC=0.7706 | ECE=0.1236 (MC=2, train_mode=True)
+[2025-09-24 15:58:46,914][baye_lora][INFO] - Using device: cuda:6
+[2025-09-24 15:58:48,548][root][INFO] - Setting up PEFT
+[2025-09-24 15:58:49,924][baye_lora][INFO] - [Inject] replaced Linear layers: PeftModelForCausalLM(
+  (base_model): LoraModel(
+    (model): LlamaForCausalLM(
+      (model): LlamaModel(
+        (embed_tokens): Embedding(32000, 4096)
+        (layers): ModuleList(
+          (0-31): 32 x LlamaDecoderLayer(
+            (self_attn): LlamaAttention(
+              (q_proj): lora.Linear(
+                (base_layer): Linear(in_features=4096, out_features=4096, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.05, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): InducingLinear(
+                    in_features=4096, out_features=8, bias=False
+                    (row_flow): MaskedAffineAutoregressiveTransform(
+                      (autoregressive_net): MADE(
+                        (initial_layer): MaskedLinear(in_features=9, out_features=16, bias=True)
+                        (blocks): ModuleList(
+                          (0-1): 2 x MaskedResidualBlock(
+                            (linear_layers): ModuleList(
+                              (0-1): 2 x MaskedLinear(in_features=16, out_features=16, bias=True)
+                            )
+                            (dropout): Dropout(p=0.1, inplace=False)
+                          )
+                        )
+                        (final_layer): MaskedLinear(in_features=16, out_features=18, bias=True)
+                      )
+                    )
+                  )
+                )
+                (lora_B): ModuleDict(
+                  (default): InducingLinear(
+                    in_features=8, out_features=4096, bias=False
+                    (row_flow): MaskedAffineAutoregressiveTransform(
+                      (autoregressive_net): MADE(
+                        (initial_layer): MaskedLinear(in_features=9, out_features=16, bias=True)
+                        (blocks): ModuleList(
+                          (0-1): 2 x MaskedResidualBlock(
+                            (linear_layers): ModuleList(
+                              (0-1): 2 x MaskedLinear(in_features=16, out_features=16, bias=True)
+                            )
+                            (dropout): Dropout(p=0.1, inplace=False)
+                          )
+                        )
+                        (final_layer): MaskedLinear(in_features=16, out_features=18, bias=True)
+                      )
+                    )
+                  )
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): lora.Linear(
+                (base_layer): Linear(in_features=4096, out_features=4096, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.05, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=4096, out_features=8, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=8, out_features=4096, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+            )
+            (mlp): LlamaMLP(
+              (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+              (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+              (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+              (act_fn): SiLU()
+            )
+            (input_layernorm): LlamaRMSNorm((4096,), eps=1e-05)
+            (post_attention_layernorm): LlamaRMSNorm((4096,), eps=1e-05)
+          )
+        )
+        (norm): LlamaRMSNorm((4096,), eps=1e-05)
+        (rotary_emb): LlamaRotaryEmbedding()
+      )
+      (lm_head): lora.Linear(
+        (base_layer): Linear(in_features=4096, out_features=32000, bias=False)
+        (lora_dropout): ModuleDict(
+          (default): Dropout(p=0.05, inplace=False)
+        )
+        (lora_A): ModuleDict(
+          (default): InducingLinear(
+            in_features=4096, out_features=8, bias=False
+            (row_flow): MaskedAffineAutoregressiveTransform(
+              (autoregressive_net): MADE(
+                (initial_layer): MaskedLinear(in_features=9, out_features=16, bias=True)
+                (blocks): ModuleList(
+                  (0-1): 2 x MaskedResidualBlock(
+                    (linear_layers): ModuleList(
+                      (0-1): 2 x MaskedLinear(in_features=16, out_features=16, bias=True)
+                    )
+                    (dropout): Dropout(p=0.1, inplace=False)
+                  )
+                )
+                (final_layer): MaskedLinear(in_features=16, out_features=18, bias=True)
+              )
+            )
+          )
+        )
+        (lora_B): ModuleDict(
+          (default): InducingLinear(
+            in_features=8, out_features=32000, bias=False
+            (row_flow): MaskedAffineAutoregressiveTransform(
+              (autoregressive_net): MADE(
+                (initial_layer): MaskedLinear(in_features=9, out_features=16, bias=True)
+                (blocks): ModuleList(
+                  (0-1): 2 x MaskedResidualBlock(
+                    (linear_layers): ModuleList(
+                      (0-1): 2 x MaskedLinear(in_features=16, out_features=16, bias=True)
+                    )
+                    (dropout): Dropout(p=0.1, inplace=False)
+                  )
+                )
+                (final_layer): MaskedLinear(in_features=16, out_features=18, bias=True)
+              )
+            )
+          )
+        )
+        (lora_embedding_A): ParameterDict()
+        (lora_embedding_B): ParameterDict()
+        (lora_magnitude_vector): ModuleDict()
+      )
+    )
+  )
+)
+[2025-09-24 15:58:49,925][baye_lora][INFO] - [Params] trainable=4.90M / total=6743.32M
+[2025-09-24 16:00:08,276][baye_lora][INFO] - Using device: cuda:0
+[2025-09-24 16:00:10,020][root][INFO] - Setting up PEFT
+[2025-09-24 16:00:11,450][baye_lora][INFO] - [Inject] replaced Linear layers: PeftModelForCausalLM(
+  (base_model): LoraModel(
+    (model): LlamaForCausalLM(
+      (model): LlamaModel(
+        (embed_tokens): Embedding(32000, 4096)
+        (layers): ModuleList(
+          (0-31): 32 x LlamaDecoderLayer(
+            (self_attn): LlamaAttention(
+              (q_proj): lora.Linear(
+                (base_layer): Linear(in_features=4096, out_features=4096, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.05, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): InducingLinear(
+                    in_features=4096, out_features=8, bias=False
+                    (row_flow): MaskedAffineAutoregressiveTransform(
+                      (autoregressive_net): MADE(
+                        (initial_layer): MaskedLinear(in_features=9, out_features=16, bias=True)
+                        (blocks): ModuleList(
+                          (0-1): 2 x MaskedResidualBlock(
+                            (linear_layers): ModuleList(
+                              (0-1): 2 x MaskedLinear(in_features=16, out_features=16, bias=True)
+                            )
+                            (dropout): Dropout(p=0.1, inplace=False)
+                          )
+                        )
+                        (final_layer): MaskedLinear(in_features=16, out_features=18, bias=True)
+                      )
+                    )
+                  )
+                )
+                (lora_B): ModuleDict(
+                  (default): InducingLinear(
+                    in_features=8, out_features=4096, bias=False
+                    (row_flow): MaskedAffineAutoregressiveTransform(
+                      (autoregressive_net): MADE(
+                        (initial_layer): MaskedLinear(in_features=9, out_features=16, bias=True)
+                        (blocks): ModuleList(
+                          (0-1): 2 x MaskedResidualBlock(
+                            (linear_layers): ModuleList(
+                              (0-1): 2 x MaskedLinear(in_features=16, out_features=16, bias=True)
+                            )
+                            (dropout): Dropout(p=0.1, inplace=False)
+                          )
+                        )
+                        (final_layer): MaskedLinear(in_features=16, out_features=18, bias=True)
+                      )
+                    )
+                  )
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): lora.Linear(
+                (base_layer): Linear(in_features=4096, out_features=4096, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.05, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=4096, out_features=8, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=8, out_features=4096, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+            )
+            (mlp): LlamaMLP(
+              (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+              (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+              (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+              (act_fn): SiLU()
+            )
+            (input_layernorm): LlamaRMSNorm((4096,), eps=1e-05)
+            (post_attention_layernorm): LlamaRMSNorm((4096,), eps=1e-05)
+          )
+        )
+        (norm): LlamaRMSNorm((4096,), eps=1e-05)
+        (rotary_emb): LlamaRotaryEmbedding()
+      )
+      (lm_head): lora.Linear(
+        (base_layer): Linear(in_features=4096, out_features=32000, bias=False)
+        (lora_dropout): ModuleDict(
+          (default): Dropout(p=0.05, inplace=False)
+        )
+        (lora_A): ModuleDict(
+          (default): InducingLinear(
+            in_features=4096, out_features=8, bias=False
+            (row_flow): MaskedAffineAutoregressiveTransform(
+              (autoregressive_net): MADE(
+                (initial_layer): MaskedLinear(in_features=9, out_features=16, bias=True)
+                (blocks): ModuleList(
+                  (0-1): 2 x MaskedResidualBlock(
+                    (linear_layers): ModuleList(
+                      (0-1): 2 x MaskedLinear(in_features=16, out_features=16, bias=True)
+                    )
+                    (dropout): Dropout(p=0.1, inplace=False)
+                  )
+                )
+                (final_layer): MaskedLinear(in_features=16, out_features=18, bias=True)
+              )
+            )
+          )
+        )
+        (lora_B): ModuleDict(
+          (default): InducingLinear(
+            in_features=8, out_features=32000, bias=False
+            (row_flow): MaskedAffineAutoregressiveTransform(
+              (autoregressive_net): MADE(
+                (initial_layer): MaskedLinear(in_features=9, out_features=16, bias=True)
+                (blocks): ModuleList(
+                  (0-1): 2 x MaskedResidualBlock(
+                    (linear_layers): ModuleList(
+                      (0-1): 2 x MaskedLinear(in_features=16, out_features=16, bias=True)
+                    )
+                    (dropout): Dropout(p=0.1, inplace=False)
+                  )
+                )
+                (final_layer): MaskedLinear(in_features=16, out_features=18, bias=True)
+              )
+            )
+          )
+        )
+        (lora_embedding_A): ParameterDict()
+        (lora_embedding_B): ParameterDict()
+        (lora_magnitude_vector): ModuleDict()
+      )
+    )
+  )
+)
+[2025-09-24 16:00:11,451][baye_lora][INFO] - [Params] trainable=4.90M / total=6743.32M
+[2025-09-24 16:01:19,152][baye_lora][INFO] - [EP 4 | STEP 2130] LR: 4.280000e-06 NLL=0.5886 | ACC=0.7722 | ECE=0.1259 (MC=2, train_mode=True)
+[2025-09-24 16:05:57,786][baye_lora][INFO] - [EP 0 | STEP 426] LR: 4.280000e-04 NLL=0.5659 | ACC=0.7089 | ECE=0.0275 (MC=2, train_mode=True)
+[2025-09-24 16:07:57,319][baye_lora][INFO] - [EP 0 | STEP 426] LR: 4.280000e-04 NLL=0.5840 | ACC=0.6915 | ECE=0.0412 (MC=2, train_mode=True)
+[2025-09-24 16:08:55,671][baye_lora][INFO] - [EP 5 | STEP 2556] LR: 4.280000e-06 NLL=0.5924 | ACC=0.7737 | ECE=0.1290 (MC=2, train_mode=True)
+[2025-09-24 16:08:55,672][baye_lora][INFO] - [FINAL] lr=4.280e-04, wd=1.000e-02 ECE=0.0384 | NLL=0.5876 | ACC=0.6899
+[2025-09-24 16:12:55,439][baye_lora][INFO] - [EP 1 | STEP 852] LR: 4.280000e-05 NLL=0.5573 | ACC=0.7081 | ECE=0.0208 (MC=2, train_mode=True)
+[2025-09-24 16:15:22,129][baye_lora][INFO] - [EP 1 | STEP 852] LR: 4.280000e-04 NLL=0.5979 | ACC=0.7437 | ECE=0.1220 (MC=2, train_mode=True)
+[2025-09-24 16:20:29,068][baye_lora][INFO] - [EP 2 | STEP 1278] LR: 4.280000e-05 NLL=0.5509 | ACC=0.7634 | ECE=0.1016 (MC=2, train_mode=True)
+[2025-09-24 16:23:27,322][baye_lora][INFO] - [EP 2 | STEP 1278] LR: 4.280000e-04 NLL=0.5998 | ACC=0.7342 | ECE=0.1054 (MC=2, train_mode=True)
+[2025-09-24 16:28:02,106][baye_lora][INFO] - [EP 3 | STEP 1704] LR: 4.280000e-06 NLL=0.5843 | ACC=0.7642 | ECE=0.1232 (MC=2, train_mode=True)
+[2025-09-24 16:35:38,768][baye_lora][INFO] - [EP 4 | STEP 2130] LR: 4.280000e-06 NLL=0.5922 | ACC=0.7650 | ECE=0.1277 (MC=2, train_mode=True)
+[2025-09-24 16:43:12,866][baye_lora][INFO] - [EP 5 | STEP 2556] LR: 4.280000e-06 NLL=0.5994 | ACC=0.7674 | ECE=0.1308 (MC=2, train_mode=True)
+[2025-09-24 16:43:12,866][baye_lora][INFO] - [FINAL] lr=4.280e-04, wd=1.000e-02 ECE=0.0275 | NLL=0.5659 | ACC=0.7089

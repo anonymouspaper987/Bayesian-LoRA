@@ -1,0 +1,34 @@
+name: RoBERTa
+model_name_or_path: FacebookAI/roberta-base
+
+config_class: AutoConfig
+config_kwargs: {}
+
+tokenizer_class: AutoTokenizer
+tokenizer_kwargs:
+  use_fast: true
+
+tokenizer_special_tokens: {}
+
+model_class: AutoModelForSequenceClassification
+model_kwargs:
+  torch_dtype: bfloat16 # auto
+  attn_implementation: "flash_attention_2"
+  problem_type: multi_label_classification
+
+# Global HF generation configurations
+global_gen_kwargs: {}
+
+add_space: true
+is_sc: true
+
+use_peft: false
+peft:
+  target_modules: ["query", "value", "dense"]
+
+use_quant: false
+
+defaults:
+  - quantization: none
+  - peft: lora
+  - _self_

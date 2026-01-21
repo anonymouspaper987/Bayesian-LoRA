@@ -1,0 +1,10 @@
+name: arc
+alias_name: ARC-Easy
+max_epochs: 5
+train_bs: 32
+train_split: train
+eval_bs: 32
+eval_split: validation
+eval_subset: 1500
+max_length: 256
+n_labels: 5
