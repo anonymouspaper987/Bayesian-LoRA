@@ -13,7 +13,7 @@ This repository contains the **official and anonymous implementation** of the pa
 **Bayesian-LoRA: Probabilistic Low-Rank Adaptation for Large Language Models**  
 *(Under review at ICML 2026)*
 
-Bayesian-LoRA introduces a **Bayesian treatment of low-rank adaptation** by placing probabilistic priors over LoRA factors and performing variational inference via sparse inducing variables. 
+Bayesian-LoRA introduces a **Bayesian treatment of low-rank adaptation** by placing probabilistic priors over LoRA factors and performing variational inference via sparse inducing variables.  
 
 
 
@@ -115,4 +115,3 @@ MIT License
 Thanks to the open-source community for LoRA/PEFT that enabled this work.
 
 
-```
