@@ -8,7 +8,13 @@
 ---
 ## Overview
 
-This repository provides the official and anonymous implementation of **"Bayesian-LoRA: Probabilistic Low-Rank Adaptation for LLMs"** for the review of ICML2026.
+This repository contains the **official and anonymous implementation** of the paper:
+
+**Bayesian-LoRA: Probabilistic Low-Rank Adaptation for Large Language Models**  
+*(Under review at ICML 2026)*
+
+Bayesian-LoRA introduces a **Bayesian treatment of low-rank adaptation** by placing probabilistic priors over LoRA factors and performing variational inference via sparse inducing variables. 
+
 
 
 #### Repository Structure
@@ -16,10 +22,10 @@ This repository provides the official and anonymous implementation of **"Bayesia
 ```
 
 .
-├── bnn/             # Probabilistic framework
+├── bnn/             # Probabilistic framework for LLMs
 ├── logs/            # files of logs
 ├── utils/           # utils
-|── configs/         # hydran configuration                   
+|── configs/         # Hydra configuration                   
 ├── train_script.py  # Training entrypoint
 └── README.md
 
@@ -57,6 +63,7 @@ Inducing variables $U$ generate the effective **weights A and B through a condit
 Given the weights, each data point is generated via $y_n \sim p(y_n \mid f(x_n; W))$. 
 This formulation replaces the low-rank adaptation in LoRA by a Bayesian treatment of low-dimensional inducing weights.
 
+![Implementation Version1](./images/sgp_version1.jpg)
 
 ---
 
@@ -85,7 +92,7 @@ We used Bayesian Optimization to search hyperparameters and summarize trade-offs
 
 ---
 
-## Reproduce the ARC_Easy Example
+## One example more on the ARC_Easy Dataset
 
 1. Ensure the ARC_Easy data path is set.
 2. Run:
