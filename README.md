@@ -1,10 +1,10 @@
 
 <p align="center">
-  <img src="images/banner.svg" alt="Bayesian-LoRA Banner" width="100%"/>
+  <img src="images/banner.jpg" alt="Bayesian-LoRA Banner" width="100%"/>
 </p>
 
 <p align="center">
-  <a href="https://arxiv.org/abs/xxxx.xxxxx"><img src="https://img.shields.io/badge/arXiv-xxxx.xxxxx-b31b1b.svg?style=flat-square" alt="arXiv"></a>
+  <a href=""><img src="https://img.shields.io/badge/arXiv-xxxx.xxxxx-b31b1b.svg?style=flat-square" alt="arXiv"></a>
   <a href="#license"><img src="https://img.shields.io/badge/License-MIT-green.svg?style=flat-square" alt="License: MIT"></a>
   <img src="https://img.shields.io/badge/Python-3.9%2B-blue.svg?style=flat-square&logo=python&logoColor=white" alt="Python 3.9+">
   <img src="https://img.shields.io/badge/PyTorch-2.0%2B-ee4c2c.svg?style=flat-square&logo=pytorch&logoColor=white" alt="PyTorch 2.0+">
