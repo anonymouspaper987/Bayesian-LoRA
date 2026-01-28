@@ -293,7 +293,7 @@ If you find this work useful, please consider citing:
 
 ```bibtex
 @inproceedings{anonymous2026bayesianlora,
-  title     = {Bayesian-LoRA: Probabilistic Low-Rank Adaptation for Large Language Models},
+  title     = {Bayesian-LoRA: Probabilistic Low-Rank Adaptation of Large Language Models},
   author    = {Anonymous},
   booktitle = {Proceedings of the International Conference on Machine Learning (ICML)},
   year      = {2026},
