@@ -19,7 +19,7 @@
 </p>
 
 <p align="center">
-  <b>Official implementation</b> of <i>"Bayesian-LoRA: Probabilistic Low-Rank Adaptation for Large Language Models"</i>
+  <b>Official implementation</b> of <i>"Bayesian-LoRA: Probabilistic Low-Rank Adaptation of Large Language Models"</i>
   <br/>
   <sub>Anonymous Authors &mdash; Under review at <b>ICML 2026</b></sub>
 </p>
