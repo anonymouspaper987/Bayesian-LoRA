@@ -1,0 +1,11 @@
+{
+  "method": "Bayesian_LoRA",
+  "dataset": "OBQA",
+  "n_mc": 4,
+  "seed": 42,
+  "ACC": 90.4,
+  "ECE": 0.034,
+  "NLL": 0.3137,
+  "num_examples": 500
+}
+

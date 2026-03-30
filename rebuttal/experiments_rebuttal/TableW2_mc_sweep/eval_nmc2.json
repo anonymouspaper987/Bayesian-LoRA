@@ -1,0 +1,10 @@
+{
+  "method": "Bayesian_LoRA",
+  "dataset": "ARC-Easy",
+  "n_mc": 2,
+  "seed": 42,
+  "ACC": 94.49,
+  "ECE": 0.0102,
+  "NLL": 0.1348,
+  "num_examples": 2376
+}

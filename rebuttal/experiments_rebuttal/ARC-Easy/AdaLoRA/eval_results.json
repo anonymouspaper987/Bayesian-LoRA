@@ -1,0 +1,10 @@
+{
+  "method": "AdaLoRA",
+  "dataset": "ARC-Easy",
+  "n_mc": 1,
+  "seed": 42,
+  "ACC": 94.57,
+  "ECE": 0.0095,
+  "NLL": 0.3902,
+  "num_examples": 2376
+}

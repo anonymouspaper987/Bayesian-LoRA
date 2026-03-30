@@ -1,0 +1,10 @@
+{
+  "method": "LoRA_plus",
+  "dataset": "ARC-Challenge",
+  "n_mc": 1,
+  "seed": 42,
+  "ACC": 90.71,
+  "ECE": 0.0412,
+  "NLL": 0.4494,
+  "num_examples": 1172
+}

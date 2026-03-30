@@ -1,0 +1,10 @@
+{
+  "method": "LoRA",
+  "dataset": "OBQA",
+  "n_mc": 1,
+  "seed": 42,
+  "ACC": 88.8,
+  "ECE": 0.0504,
+  "NLL": 0.3942,
+  "num_examples": 500
+}

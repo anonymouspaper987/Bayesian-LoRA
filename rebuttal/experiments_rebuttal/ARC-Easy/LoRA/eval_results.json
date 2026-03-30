@@ -1,0 +1,10 @@
+{
+  "method": "LoRA",
+  "dataset": "ARC-Easy",
+  "n_mc": 1,
+  "seed": 42,
+  "ACC": 94.53,
+  "ECE": 0.0118,
+  "NLL": 0.1088,
+  "num_examples": 2376
+}

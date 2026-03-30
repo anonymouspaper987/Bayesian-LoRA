@@ -1,0 +1,10 @@
+{
+  "method": "AdaLoRA",
+  "dataset": "OBQA",
+  "n_mc": 1,
+  "seed": 42,
+  "ACC": 89.8,
+  "ECE": 0.0477,
+  "NLL": 0.5087,
+  "num_examples": 500
+}
