@@ -1,0 +1,10 @@
+{
+  "method": null,
+  "dataset": "ARC-Challenge",
+  "n_mc": 1,
+  "seed": 42,
+  "ACC": 78.33,
+  "ECE": 0.0286,
+  "NLL": 0.5777,
+  "num_examples": 1172
+}

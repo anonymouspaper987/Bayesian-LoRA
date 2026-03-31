@@ -1,0 +1,10 @@
+{
+  "method": "Bayesian_LoRA",
+  "dataset": "ARC-Challenge",
+  "n_mc": 10,
+  "seed": 42,
+  "ACC": 78.07,
+  "ECE": 0.0323,
+  "NLL": 0.583,
+  "num_examples": 1172
+}

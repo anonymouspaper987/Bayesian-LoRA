@@ -1,0 +1,10 @@
+{
+  "method": null,
+  "dataset": "ARC-Easy",
+  "n_mc": 1,
+  "seed": 42,
+  "ACC": 88.85,
+  "ECE": 0.0185,
+  "NLL": 0.2765,
+  "num_examples": 2376
+}
